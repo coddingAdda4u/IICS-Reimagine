@@ -1,0 +1,13 @@
+.locations-row {
+  animation: scroll 40s linear infinite;
+}
+.locations-row:hover {
+  animation-play-state: paused;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  } 100% {
+    transform: translateX(-80%);
+  }
+}

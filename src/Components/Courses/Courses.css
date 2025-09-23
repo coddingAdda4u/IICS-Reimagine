@@ -1,0 +1,37 @@
+.cards-container {
+  filter: blur(20px);
+  overflow: hidden;
+}
+.cards{
+  height: 150px;
+  max-width: 400px;
+  width: 100%;
+  background: #d4d4d4;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+#cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-image: radial-gradient(
+    circle at center,
+    var(--color-bg-secondary) 0%,
+    var(--color-primary) 70%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+.courses-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 270px);
+  grid-template-rows: minmax(max-content, min-content);
+  gap: .8rem;
+  backdrop-filter: blur(10px);
+}
