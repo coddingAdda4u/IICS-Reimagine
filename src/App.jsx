@@ -4,6 +4,7 @@ import { ReactLenis } from 'lenis/react'
 const App = () => {
   return (
     <>
+
       <ReactLenis root />
       <Body />
     </>

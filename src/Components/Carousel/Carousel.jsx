@@ -14,9 +14,18 @@ function Carousel() {
           })
         }
       </div>
+      
+      <div className="carousel-controls">
+        <button className="contorls-btn left-btn">
+          <img src="arrow.svg" alt="Arrow" />
+        </button>
+        <button className="contorls-btn right-btn">
+          <img src="arrow.svg" alt="Arrow" />
+        </button>
+      </div>
 
       <div className="carousel-thumbnails">
-        <div className="tumnail-list">
+        <div className="thumbnail-list">
           {
             thumbanailItemsData.flatMap(itemData => {
               return <ThumbailItems title={itemData.title} url={itemData.url} key={itemData.title} />
@@ -42,11 +51,11 @@ function CarouselItems({ title, text, url }) {
           {text}
         </p>
 
-        <div className="carousel-controls">
-          <button className="carousel-btn next">
+        <div className="carousel-buttons">
+          <button className="carousel-btn">
             Enroll Now
           </button>
-          <button className="carousel-btn prev">
+          <button className="carousel-btn">
             Read More
           </button>
         </div>
@@ -57,13 +66,11 @@ function CarouselItems({ title, text, url }) {
 
 function ThumbailItems({ title, url }) {
   return (
-    <div className="thumbail-items">
+    <div className="thumbnail-items">
       <img src={url} alt={title} />
-      <div className="thumbnail-desc">
-        <h4>
+        <h4 className='thumbnail-desc'>
           {title}
         </h4>
-      </div>
     </div>
   )
 }

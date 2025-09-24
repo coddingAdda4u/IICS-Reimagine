@@ -6,7 +6,9 @@ import Description from "../Desctription/Description"
 import Events from "../Events/Events"
 import Navbar from "../Navbar/Navbar"
 import Testimonials from "../Testimonials/Testimonials"
-
+import Faq from "../FAQ/Faq"
+import Question from "../Forms/Questions"
+import Footer from "../Footer/Footer"
 
 function Body() {
   return (
@@ -19,6 +21,9 @@ function Body() {
       <Achivements />
       <Events />
       <Testimonials />
+      <Faq />
+      <Question />
+      <Footer />
     </>
   )
 }
