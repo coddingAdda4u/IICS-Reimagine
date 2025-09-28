@@ -11,3 +11,8 @@
     transform: translateX(-80%);
   }
 }
+@media screen and (max-width: 648px) {
+  .locations-row {
+    animation-duration: 20s;
+  }
+}

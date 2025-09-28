@@ -1,0 +1,109 @@
+.desc-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--color-text);
+  user-select: none;
+}
+.quotes-icons {
+  font-size: 10vw;
+  position: absolute;
+  color: var(--color-background);
+  transition: 1s cubic-bezier(0.37, 0, 0.63, 1);
+}
+.quotes-icons:first-child {
+  top: 40px;
+  left: 100px;
+  transform: rotate(180deg);
+}
+.quotes-icons:last-child {
+  right: 100px;
+  bottom: 40px;
+}
+.desc-container:hover .quotes-icons:first-child {
+  top: 80px;
+  left: 140px;
+}
+.desc-container:hover .quotes-icons:last-child {
+  bottom: 80px;
+  right: 140px;
+}
+.desc-cursor {
+  position: absolute;
+  left: -2rem;
+  top: -2rem;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: white;
+  mix-blend-mode: difference;
+}
+
+@media screen and (max-width: 1200px) {
+  .quotes-icons {
+    font-size: 13vw;
+  }
+  .quotes-icons:first-child {
+    top: 30px;
+    left: 5vw;
+  }
+  .quotes-icons:last-child {
+    right: 5vw;
+    bottom: 30px;
+  }
+  .desc-container:hover .quotes-icons:first-child {
+    top: 60px;
+    left: 9vw;
+  }
+  .desc-container:hover .quotes-icons:last-child {
+    bottom: 60px;
+    right: 9vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .quotes-icons {
+    font-size: 16vw;
+  }
+  .quotes-icons:first-child {
+    top: 20px;
+    left: 3vw;
+  }
+  .quotes-icons:last-child {
+    right: 3vw;
+    bottom: 20px;
+  }
+  .desc-container:hover .quotes-icons:first-child {
+    top: 40px;
+    left: 7vw;
+  }
+  .desc-container:hover .quotes-icons:last-child {
+    bottom: 40px;
+    right: 7vw;
+  }
+}
+
+@media screen and (max-width: 678px) {
+  .quotes-icons {
+    font-size: 20vw;
+  }
+  .quotes-icons:first-child {
+    top: 10px;
+    left: 2vw;
+  }
+  .quotes-icons:last-child {
+    right: 2vw;
+    bottom: 10px;
+  }
+  .desc-container:hover .quotes-icons:first-child {
+    top: 30px;
+    left: 5vw;
+  }
+  .desc-container:hover .quotes-icons:last-child {
+    bottom: 30px;
+    right: 5vw;
+  }
+}

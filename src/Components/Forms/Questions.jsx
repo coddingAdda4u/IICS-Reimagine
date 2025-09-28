@@ -31,6 +31,7 @@ function Questions() {
       setForm({ name: "", phone: "", email: "", location: "", message: "" })
     } catch (err) {
       setStatus({ type: "error", message: "Something went wrong. Please try again." })
+      console.log(err);
     }
   }
   return (

@@ -34,7 +34,7 @@ function Events() {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 4000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         className="events-swiper"

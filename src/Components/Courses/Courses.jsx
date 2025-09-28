@@ -1,65 +1,111 @@
-import { useEffect, useRef, useState } from 'react';
-import './Courses.css';
-import gsap from 'gsap';
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap'
+import assets from '../../assets/assets'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import './Courses.css'
+
+const coursesData = [
+  {
+    "name": "Web Development",
+    "url": assets.webDev
+  },
+  {
+    "name": "Data Science",
+    "url": assets.dataScience
+  },
+  {
+    "name": "Graphic Design",
+    "url": assets.graphicDesign
+  },
+  {
+    "name": "Digital Marketing",
+    "url": assets.digitalMarketing
+  },
+  {
+    "name": "Machine Learning",
+    "url": assets.machineLearning
+  },
+  {
+    "name": "Cyber Security",
+    "url": assets.cyberSecurity
+  },
+  {
+    "name": "Cloud Computing",
+    "url": assets.cloudComputing
+  },
+  {
+    "name": "Artificial Intelligence",
+    "url": assets.artificialIntelligence
+  },
+  {
+    "name": "Mobile App Development",
+    "url": assets.mobileDevelopment
+  },
+  {
+    "name": "UI / UX Design",
+    "url": assets.uiUx
+  },
+  {
+    "name": "Blockchain Development",
+    "url": assets.blockChain
+  },
+  {
+    "name": "Game Development",
+    "url": assets.gameDevelopment
+  },
+  {
+    "name": "Software Testing",
+    "url": assets.softwareTesting
+  },
+  {
+    "name": "DevOps Engineering",
+    "url": assets.devOps
+  },
+  {
+    "name": "Big Data Analytics",
+    "url": assets.bigData
+  },
+  {
+    "name": "Augmented & Virtual Reality",
+    "url": assets.virtualReality
+  }
+]
 
 function Courses() {
-  const [positionX, setPositionX] = useState(0);
-  const [positionY, setPositionY] = useState(0);
-  const [isMoving, setIsMoving] = useState(false);
-
-  const elem = useRef();
-  const timeoutRef = useRef(null);
-
-  useEffect(() => {
-    gsap.to(elem.current, {
-      x: positionX,
-      y: positionY,
-      duration: 2,
-      ease: 'ease.out',
-    });
-
-    gsap.to(elem.current, {
-      scale: isMoving ? 1.5 : .9,
-      duration: 1,
-      ease: 'power1.out',
-    });
-  }, [positionX, positionY, isMoving]);
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    setPositionX(x);
-    setPositionY(y);
-    setIsMoving(true);
-
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    timeoutRef.current = setTimeout(() => {
-      setIsMoving(false);
-    }, 100);
-  };
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.courses-cards', {
+      y: 50,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: '.courses-right',
+        start: 'top 80%',
+      }
+    })
+  }, []);
 
   return (
-    <section className="cover" onMouseMove={(e) => handleMouseMove(e)}>
-      <h2 className="heading-1 text-center text-primary">
-        Courses
-      </h2>
-      <div className='relative overflow-hidden'>
-        <div id="cursor" className='hidden md:block' ref={elem}></div>
-        <div className="courses-wrapper pt-4 pb-12">
+    <section className='min-h-screen w-full bg-white courses-container'>
+      <h1 className="heading-1 text-center text-background bg-transparent">
+        Our Courses
+      </h1>
+      <div className="courses-wrapper">
+        <div className="courses-right">
           {
-            Array.from({ length: 10 }).map((_, idx) => {
-              return <div className="cards" key={idx}></div>
-            })
-          }
+            coursesData.map(({ name, url }, idx) => (
+              <div className="courses-cards" key={idx}>
+                <img src={url} alt="" />
+                {name}
+              </div>
+            ))}
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Courses;
+
+export default Courses

@@ -3,5 +3,11 @@ footer {
   width: 100%;
   background: #000;
   color: var(--color-background);
-  background-image: linear-gradient(300deg, var(--color-text) 30%, var(--color-primary));
+  position: relative;
+  background-image: linear-gradient(
+    300deg,
+    var(--color-text) 30%,
+    var(--color-primary)
+  );
 }
+

@@ -1,3 +1,6 @@
+import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './Testimonials.css'
 
 const testimonialsData = [
@@ -73,7 +76,32 @@ const testimonialsData = [
   },
 ];
 
+
 const Testimonials = () => {
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const cards = document.querySelectorAll('.testimonials-cards');
+    cards.forEach((card, index) => {
+      gsap.fromTo(card,
+        {
+          opacity: 0,
+          y: 20
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: index * 0.1,
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+    });
+  }, []);
+
   return (
     <div className="cover py-4">
       <h2 className='heading-1 text-center text-bg-secondary'>Testimonials</h2>

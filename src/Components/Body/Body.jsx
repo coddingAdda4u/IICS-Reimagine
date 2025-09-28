@@ -1,4 +1,3 @@
-import Achivements from "../Achivements/Achivements"
 import Branches from "../Branches/Branches"
 import Carousel from "../Carousel/Carousel"
 import Courses from "../Courses/Courses"
@@ -16,9 +15,8 @@ function Body() {
       <Navbar />
       <Carousel />
       <Courses />
-      <Description />
       <Branches />
-      <Achivements />
+      <Description />
       <Events />
       <Testimonials />
       <Faq />
