@@ -55,7 +55,7 @@ function Description() {
   return (
     <div className="desc-container px-5 sm:px-8 md:px-30 bg-text cursor-default">
       <PiQuotesFill className='quotes-icons' />
-      <div className="py-6 px-4 relative cursor-default" onMouseMove={(e) => handleCursor(e)} onMouseLeave={() => setIsMoving(false)}>
+      <div className="py-6 px-4 relative cursor-none" onMouseMove={(e) => handleCursor(e)} onMouseLeave={() => setIsMoving(false)}>
         <div className='desc-cursor' ref={cursor}></div>
         <h2 className="text-[20px] lg:px-35 sm:text-3xl md:text-4xl text-background font-semibold" style={{ fontFamily: 'Montserrat' }}>
           IICS empowers students with industryrelevant IT and computer skills through certified courses in <br />
